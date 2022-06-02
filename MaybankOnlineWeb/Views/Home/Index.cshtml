@@ -1,0 +1,90 @@
+﻿@model ShareResources.User
+
+@{
+    ViewBag.Title = "Home Page";
+}
+<div class="jumbotron">
+    @*<h1>ASP.NET</h1>*@
+    <h2 class="lead">Welcome To Maybank Web Application</h2>
+    <p class="text-success">Hi @Model.Username, your current balance is RM @Model.Balance .</p>
+</div>
+
+<style>
+    body {
+        background-repeat: repeat;
+        background-attachment: fixed;
+        background-color: lightyellow
+    }
+</style>
+
+@using (Html.BeginForm("Index", "Home", null, FormMethod.Post))
+{
+    @*@using (Html.BeginForm())*@
+    {
+        <div style="font-family: Corbel; font-size:small; text-align:center" class="row">
+            <div>
+                <div style="width:400px;height:400px">
+                    <canvas id="myChart" style="padding:0; margin:auto; display:block;"></canvas>
+                </div>
+            </div>
+        </div>
+        <div style="font-family: Corbel; font-size:small; text-align:center" class="row">
+            <div></div><div></div>
+        </div>
+    }
+
+    <script src="~/Scripts/jquery-3.3.1.min.js"></script>
+    <script src="~/Scripts/Chart.min.js"></script>
+    <script>
+        $.ajax({
+            type: "GET",
+            url: "/Home/NewChart",
+            contentType: "application/json; charset=utf-8",
+            dataType: "json",
+            success: function (response) {
+                var aData = response;
+                var aLabels = aData[0];
+                var aDatasets1 = aData[1];
+
+                var ctx = document.getElementById("myChart").getContext('2d');
+                var myChart = new Chart(ctx, {
+                    type: 'pie',
+                    data: {
+                        labels: aLabels,
+                        datasets: [{
+                            label: "Test Data",
+                            data: aDatasets1,
+                            backgroundColor: [
+                                "rgba(54, 162, 235, 0.5)",
+                                "rgba(255, 99, 132, 0.5)"
+                            ],
+                            borderWidth: 1
+                        }]
+                    }
+                });
+            }
+        });
+    </script>
+}
+
+@*<div class="row">
+        <div class="col-md-4">
+            <h2>Getting started</h2>
+            <p>
+                ASP.NET MVC gives you a powerful, patterns-based way to build dynamic websites that
+                enables a clean separation of concerns and gives you full control over markup
+                for enjoyable, agile development.
+            </p>
+            <p><a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301865">Learn more &raquo;</a></p>
+        </div>
+        <div class="col-md-4">
+            <h2>Get more libraries</h2>
+            <p>NuGet is a free Visual Studio extension that makes it easy to add, remove, and update libraries and tools in Visual Studio projects.</p>
+            <p><a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301866">Learn more &raquo;</a></p>
+        </div>
+        <div class="col-md-4">
+            <h2>Web Hosting</h2>
+            <p>You can easily find a web hosting company that offers the right mix of features and price for your applications.</p>
+            <p><a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301867">Learn more &raquo;</a></p>
+        </div>
+    </div>*@

@@ -1,0 +1,104 @@
+﻿@model ShareResources.User
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Delete</h2>
+
+<style>
+    body {
+        background-repeat: repeat;
+        background-attachment: fixed;
+        background-color: lightcyan
+    }
+</style>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>User</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.AccountNum)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.AccountNum)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Balance)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Balance)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Card)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Card)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Ic)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Ic)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.IsAdmin)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.IsAdmin)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Username)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Username)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Password)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Password)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DateOfBirth)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DateOfBirth)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    }
+</div>

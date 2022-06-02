@@ -1,0 +1,20 @@
+﻿@if (Session["auth"] != null)
+{
+    using (Html.BeginForm("LogOff", "Users", FormMethod.Post, new { id = "logoutForm", @class = "navbar-right" }))
+    {
+        @Html.AntiForgeryToken()
+
+        <ul class="nav navbar-nav navbar-right">
+            <li>
+                @Html.ActionLink("My Profile", "Details", "Users", routeValues: new { id = Convert.ToInt32(Session["auth"]) }, htmlAttributes: new { title = "Manage" })
+            </li>
+            <li><a href="javascript:document.getElementById('logoutForm').submit()">Log Out</a></li>
+        </ul>
+    }
+}
+else
+{
+    <ul class="nav navbar-nav navbar-right">
+        <li>@Html.ActionLink("Log in", "Login", "Users", routeValues: null, htmlAttributes: new { id = "loginLink" })</li>
+    </ul>
+}

@@ -1,0 +1,102 @@
+﻿@model ShareResources.User
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<style>
+    body {
+        background-repeat: repeat;
+        background-attachment: fixed;
+        background-color: lightcyan
+    }
+</style>
+
+<div>
+    <h4>User</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dd>
+            <img height="200" width="200" src="@Url.Action("RenderImage",new { id = Model.Id})" />
+        </dd>   
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.AccountNum)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.AccountNum)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Balance)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Balance)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Card)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Card)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Ic)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Ic)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.IsAdmin)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.IsAdmin)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Username)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Username)
+        </dd>
+
+        @*<dt>
+            @Html.DisplayNameFor(model => model.Password)
+        </dt>*@
+
+        @*<dd>
+            @Html.DisplayFor(model => model.Password)
+        </dd>*@
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DateOfBirth)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DateOfBirth)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

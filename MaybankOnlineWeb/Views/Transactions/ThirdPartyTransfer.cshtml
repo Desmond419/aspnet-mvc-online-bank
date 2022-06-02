@@ -1,0 +1,58 @@
+﻿
+@{
+    ViewBag.Title = "Third Party Transfer";
+}
+
+<h2>Third Party Transfer</h2>
+
+<style>
+    body {
+        background-repeat: repeat;
+        background-attachment: fixed;
+        background-color: lightyellow
+    }
+</style>
+
+@using (Html.BeginForm())
+{
+
+    <p>Account Number</p>
+    @Html.TextBox("AccountNumber", null, new { @class = "form-control" })
+
+    <br />
+    <p>Account Name</p>
+    @Html.TextBox("AccountName", null, new { @class = "form-control", disabled = "disabled" })
+    <br />
+    <p>Transfer Amount</p>
+    @Html.TextBox("TransactionAmount", null, new { @class = "form-control" })
+    <br />
+
+    <div>
+        Email<input name="to" class="form-control" /><br />
+    </div>
+
+    @*@ViewBag.Status*@
+    <input type="submit" value="Confirm" />
+    <br />
+    <p class="text-success">@ViewBag.Success</p>
+    <p class="text-danger">@ViewBag.Fail</p>
+
+    <script src="~/Scripts/jquery-3.3.1.min.js"></script>
+    <script>
+        $("#AccountNumber").change(function () {
+            var yNum = $("#AccountNumber").val();
+
+            $.ajax({
+                type: "POST",
+                url: "/Transactions/ThirdPartyTransfer",
+                data: { TransactionAmount: 0, AccountNumber: yNum },
+                success: function (response) {
+                    $("#AccountName").val(response);
+                },
+                error: function () {
+                    $("#AccountName").val("Error");
+                }
+            });
+        });
+    </script>
+}

@@ -1,0 +1,58 @@
+﻿@model MaybankOnlineWeb.Models.Transactions
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Transactions</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.BankAccName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.BankAccName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SenderName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SenderName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Type)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Type)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TransactionAmount)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TransactionAmount)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TransactionDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TransactionDate)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
