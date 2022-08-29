@@ -27,8 +27,8 @@ namespace Customer.Controllers
             WebMail.SmtpPort = 587;
             WebMail.SmtpUseDefaultCredentials = true;
             WebMail.EnableSsl = true;
-            WebMail.UserName = "7547461@gmail.com";
-            WebMail.Password = "7547461lzk";
+            WebMail.UserName = "";
+            WebMail.Password = "";
             WebMail.From = "7547461@gmail.com";
             string body = "We would like to inform you that " + name + " has transfered RM" + amount + " to your account on " + DateTime.Now;
             WebMail.Send(to: to, subject: "Maybank Interbank Transfer", body: body, isBodyHtml: true);
